@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var userScore = 0
+    @State private var endPoint = 0
+    @State private var endGame = false
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -54,7 +57,7 @@ struct ContentView: View {
                 .background(.regularMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
                 
-                Text("Score ???")
+                Text("Score \(userScore)")
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
@@ -63,19 +66,34 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continiue", action: askQuestion)
         } message: {
-            Text("Your score is ???")
+            Text("Your score is \(userScore)")
+        }
+        .alert("End Game", isPresented: $endGame) {
+            Button("Continiue", action: {})
+        } message: {
+            Text("Game over! Total score is \(userScore)")
         }
     }
     
     func flagTapped(_ number: Int) {
         scoreTitle = number == correctAnswer ? "Correct" : "Wrong"
+        
+        if correctAnswer == number { userScore += 1}
+        
+        
+        if endPoint == 1 {
+            endGame = true
+            return
+        }
         showingScore = true
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        endPoint += 1
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
