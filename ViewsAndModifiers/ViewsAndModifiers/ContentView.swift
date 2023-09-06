@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+            
+    }
+}
+
+extension View {
+    func titleStyleMy() -> some View {
+        self.modifier(Title())
+    }
+}
+
 struct GridStack<Content: View>: View {
     let rows: Int
     let columns: Int
@@ -27,12 +42,8 @@ struct GridStack<Content: View>: View {
 
 struct ContentView: View {
     var body: some View {
-        GridStack(rows: 4, columns: 4) { row, col in
-            
-                Image(systemName: "\(row * 4 + col).circle")
-                Text("R\(row) C\(col)")
-            
-        }
+        Text("Hello")
+            .titleStyleMy()
     }
 }
 
