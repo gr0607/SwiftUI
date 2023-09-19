@@ -7,26 +7,44 @@
 
 import SwiftUI
 
-struct User: Codable {
-    let firstName: String
-    let lastName: String
-}
 
 struct ContentView: View {
-    @State private var user = User(firstName: "Sasha", lastName: "Actor")
-    
+    @StateObject var expenses = Expenses()
+    @State private var showingAddExpense = false
   
     var body: some View {
-        Button("Save user") {
-            let encoder = JSONEncoder()
-            
-            if let data = try? encoder.encode(user) {
-                UserDefaults.standard.set(data, forKey: "UserData")
+        NavigationView {
+            List {
+                ForEach(expenses.items) { item in
+                    HStack {
+                          VStack(alignment: .leading) {
+                              Text(item.name)
+                                  .font(.headline)
+                              Text(item.type)
+                          }
+
+                          Spacer()
+                          Text(item.amount, format: .currency(code: "USD"))
+                      }                }
+                .onDelete(perform: removeItems)
+            }//List
+            .navigationTitle("iExpense")
+            .toolbar {
+                Button {
+                    showingAddExpense = true
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
-            
-        }
-    }
+            .sheet(isPresented: $showingAddExpense) {
+                AddView(expenses: expenses)
+            }
+        }//NavigationView
+    } //body
     
+    func removeItems(at offsets: IndexSet) {
+        expenses.items.remove(atOffsets: offsets)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
