@@ -36,6 +36,10 @@ struct MissionView: View {
                             .font(.title.bold())
                             .padding(.bottom, 5)
                         
+                        Text(mission.formattedLaucnhDate)
+                            .font(.title3)
+                            .padding(.bottom, 5)
+                        
                         Text(mission.description)
                     }//Vstack
                     .padding(.horizontal)
