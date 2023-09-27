@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8488F13F2AC4ACC4003C4DD6 /* SpecialEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488F13E2AC4ACC4003C4DD6 /* SpecialEffectsView.swift */; };
 		848B31172AC296B000DBC75D /* DrawingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B31162AC296B000DBC75D /* DrawingApp.swift */; };
 		848B31192AC296B000DBC75D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B31182AC296B000DBC75D /* ContentView.swift */; };
 		848B311B2AC296B200DBC75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848B311A2AC296B200DBC75D /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8488F13E2AC4ACC4003C4DD6 /* SpecialEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffectsView.swift; sourceTree = "<group>"; };
 		848B31132AC296B000DBC75D /* Drawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848B31162AC296B000DBC75D /* DrawingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingApp.swift; sourceTree = "<group>"; };
 		848B31182AC296B000DBC75D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				84F623CA2AC33B4500C37A9B /* ThirdUIView.swift */,
 				848B311A2AC296B200DBC75D /* Assets.xcassets */,
 				848B311C2AC296B200DBC75D /* Preview Content */,
+				8488F13E2AC4ACC4003C4DD6 /* SpecialEffectsView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				84F623CB2AC33B4500C37A9B /* ThirdUIView.swift in Sources */,
 				84F623C92AC3386D00C37A9B /* SecondView.swift in Sources */,
+				8488F13F2AC4ACC4003C4DD6 /* SpecialEffectsView.swift in Sources */,
 				848B31192AC296B000DBC75D /* ContentView.swift in Sources */,
 				848B31172AC296B000DBC75D /* DrawingApp.swift in Sources */,
 			);
