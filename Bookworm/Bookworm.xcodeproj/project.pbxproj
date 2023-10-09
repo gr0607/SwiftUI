@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8474D8272AD19DC20029AFCD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474D8262AD19DC20029AFCD /* DataController.swift */; };
 		8474D82A2AD19E520029AFCD /* Bookworm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8474D8282AD19E520029AFCD /* Bookworm.xcdatamodeld */; };
+		848B01722AD466230066A377 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B01712AD466230066A377 /* DetailView.swift */; };
 		849FB1E52AD27186004D9066 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FB1E42AD27186004D9066 /* AddBookView.swift */; };
 		849FB1E72AD278D3004D9066 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FB1E62AD278D3004D9066 /* RatingView.swift */; };
 		849FB1E92AD27B4C004D9066 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FB1E82AD27B4C004D9066 /* EmojiRatingView.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		8474D8262AD19DC20029AFCD /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		8474D8292AD19E520029AFCD /* Bookworm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookworm.xcdatamodel; sourceTree = "<group>"; };
+		848B01712AD466230066A377 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		849FB1E42AD27186004D9066 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		849FB1E62AD278D3004D9066 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		849FB1E82AD27B4C004D9066 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				84EF0A102AD1862E00B2F80F /* BookwormApp.swift */,
 				84EF0A122AD1862E00B2F80F /* ContentView.swift */,
+				848B01712AD466230066A377 /* DetailView.swift */,
 				849FB1E82AD27B4C004D9066 /* EmojiRatingView.swift */,
 				8474D8262AD19DC20029AFCD /* DataController.swift */,
 				8474D8282AD19E520029AFCD /* Bookworm.xcdatamodeld */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EF0A132AD1862E00B2F80F /* ContentView.swift in Sources */,
+				848B01722AD466230066A377 /* DetailView.swift in Sources */,
 				8474D82A2AD19E520029AFCD /* Bookworm.xcdatamodeld in Sources */,
 				849FB1E92AD27B4C004D9066 /* EmojiRatingView.swift in Sources */,
 				8474D8272AD19DC20029AFCD /* DataController.swift in Sources */,

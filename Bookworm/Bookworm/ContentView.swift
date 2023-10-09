@@ -11,7 +11,8 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.title, order: .reverse),
+                                    SortDescriptor(\.author)]) var books: FetchedResults<Book>
    
     @State private var showindAddScreen = false
     
@@ -20,7 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(books) { book in
                     NavigationLink {
-                        Text(book.title ?? "Unknown Title")
+                        DetailView(book: book)
                     } label: {
                         HStack {
                             EmojiRatingView(rating: book.rating)
@@ -36,9 +37,14 @@ struct ContentView: View {
                         }
                     }//NavigationLink
                 }//ForEach
+                .onDelete(perform: deleteBooks)
             }//List
                 .navigationTitle("Bookworm")
                 .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                    
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             showindAddScreen.toggle()
@@ -52,6 +58,15 @@ struct ContentView: View {
                 }
         }//NavigationView
     }//body
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            let book = books[offset]
+            
+            moc.delete(book)
+        }
+        try? moc.save()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
