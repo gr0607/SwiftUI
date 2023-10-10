@@ -14,8 +14,13 @@ struct AddBookView: View {
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = ""
+    @State private var genre = "Fantasy"
     @State private var review = ""
+    
+    private var saveIsDisable: Bool {
+        title.isEmpty || author.isEmpty
+    }
+    
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
 
@@ -57,6 +62,7 @@ struct AddBookView: View {
                         try? moc.save()
                         dismiss()
                     }
+                    .disabled(saveIsDisable)
                 }//Section
             }//Form
             .navigationTitle("Add Book")
