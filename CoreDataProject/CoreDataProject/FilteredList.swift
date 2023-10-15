@@ -8,6 +8,12 @@
 import SwiftUI
 import CoreData
 
+enum MyPredicate: String {
+    case beginsWith = "BEGINSWITH"
+    case equal = "=="
+    case contains = "CONTAINS"
+}
+
 struct FilteredList<T: NSManagedObject, Content: View>: View {
     @FetchRequest var fetchRequest: FetchedResults<T>
     
@@ -19,8 +25,8 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         }
     }
     
-    init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
-        _fetchRequest = FetchRequest<T>(sortDescriptors: [], predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
+    init(sortDesriptors: [SortDescriptor<T>], predicate: MyPredicate, filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
+        _fetchRequest = FetchRequest<T>(sortDescriptors: sortDesriptors, predicate: NSPredicate(format: "%K \(predicate.rawValue) %@", filterKey, filterValue))
         self.content = content
     }
 }
