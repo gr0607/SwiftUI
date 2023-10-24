@@ -6,42 +6,43 @@
 //
 
 import SwiftUI
-
-enum LoadingState {
-    case loading, success, failed
-}
-
-struct LoadingView: View {
-    var body: some View {
-        Text("Loading...")
-    }
-}
-
-struct SuccessView: View {
-    var body: some View {
-        Text("Success!")
-    }
-}
-
-struct FailedView: View {
-    var body: some View {
-        Text("Failed.")
-    }
-}
+import MapKit
+import LocalAuthentication
 
 struct ContentView: View {
-    var loadingState = LoadingState.success
+    @State private var isUnlocked = false
+
     
-       var body: some View {
-           if loadingState == .loading {
-               LoadingView()
-           } else if loadingState == .success {
-               SuccessView()
-           } else if loadingState == .failed {
-               FailedView()
-           }
-       }
-  
+    var body: some View {
+        VStack {
+            if isUnlocked {
+                Text("Unlocked")
+            } else {
+                Text("Locked")
+            }
+        }
+        .onAppear(perform: authenticate)
+    }//body
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            let reason = "We need to unlock your data."
+            
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { succes, authError in
+                if succes {
+                    isUnlocked = true
+                } else {
+                    // there was a probleb
+                }
+            }
+        } else {
+            //no bio
+        }
+        
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
